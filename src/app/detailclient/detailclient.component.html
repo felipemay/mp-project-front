@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Detalhes do Cliente</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon slot="end" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-item>
+      <ion-card-title class="ion-padding"><b>Nome: </b><br>{{ client.name }}</ion-card-title>
+    </ion-item>
+    <ion-item>
+      <ion-card-title class="ion-padding"><b>CNPJ: </b><br>{{ client.cnpj }}</ion-card-title>
+    </ion-item>
+    <ion-item>
+      <ion-card-title class="ion-padding"><b>Total Faturado: </b><br>R$ {{ client.total_expense }}</ion-card-title>
+    </ion-item>
+    <ion-item>
+      <ion-card-title class="ion-padding"><b>Endereço: </b><br>{{ client.address }}, Nº:  {{ client.address_number }}</ion-card-title>
+    </ion-item>
+    <ion-item>
+      <ion-card-title class="ion-padding"><b>Cidade: </b><br>{{ client.city }}</ion-card-title>
+    </ion-item>
+    <ion-item>
+      <ion-card-title class="ion-padding"><b>Estado: </b><br>{{ client.state }}</ion-card-title>
+    </ion-item>
+    <ion-item>
+      <ion-card-title class="ion-padding"><b>Telefone: </b><br>{{ client.phone }}</ion-card-title>
+    </ion-item>
+    <ion-button expand="block" (click)="openEditModal()"> Atualizar </ion-button>
+    <ion-button expand="block" color="danger" (click)="onDeleteClient()"> Excluir </ion-button>
+</ion-content>

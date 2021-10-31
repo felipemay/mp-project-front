@@ -8,8 +8,24 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'clients',
     pathMatch: 'full'
+  },
+  {
+    path: 'clients',
+    loadChildren: () => import('./clients/clients.module').then( m => m.ClientsPageModule)
+  },
+  {
+    path: 'orders',
+    loadChildren: () => import('./orders/orders.module').then( m => m.OrdersPageModule)
+  },
+  {
+    path: 'add-client',
+    loadChildren: () => import('./add-client/add-client.module').then( m => m.AddClientPageModule)
+  },
+  {
+    path: 'add-order',
+    loadChildren: () => import('./add-order/add-order.module').then( m => m.AddOrderPageModule)
   },
 ];
 

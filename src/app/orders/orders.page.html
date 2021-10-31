@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar class="ion-padding">
+    <ion-button class="ion-padding" expand="block" routerLink="/add-order">Novo Pedido</ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-card *ngFor="let orders of orders$|async">
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="9">
+            <ion-card-content>
+              <ion-card-title><b>Pedido: #{{ orders.id }}</b></ion-card-title>
+              <ion-card-title><b>Produto: </b>{{ orders.product_name }}</ion-card-title>
+              <ion-card-title><b>Valor:</b> R$ {{ orders.price }}</ion-card-title>
+            </ion-card-content>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+  </ion-list>
+</ion-content>
