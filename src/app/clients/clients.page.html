@@ -7,6 +7,9 @@
 <ion-content>
   <ion-list>
     <ion-card *ngFor="let clients of clients$|async" (click)="openClientDetailModal(clients)">
+      <ion-button (click)="onClick()">
+        <ion-icon name="ellipsis-vertical"></ion-icon>
+      </ion-button>
       <ion-grid fixed>
         <ion-row>
           <ion-col size="9">
