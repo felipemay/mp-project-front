@@ -1,10 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { LoadingController, ModalController } from '@ionic/angular';
+import {
+  LoadingController,
+  ModalController,
+  PopoverController,
+} from '@ionic/angular';
 import { map, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { ClientsService } from '../services/clients.service';
 import { Client } from './client.model';
 import { DetailclientComponent } from '../detailclient/detailclient.component';
+import { PopoverComponent } from '../components/popover/popover.component';
 
 @Component({
   selector: 'app-clients',
@@ -17,7 +22,8 @@ export class ClientsPage implements OnInit {
   constructor(
     private clientsService: ClientsService,
     private loadingCtrl: LoadingController,
-    private modalCtrl: ModalController
+    private modalCtrl: ModalController,
+    private popCtrl: PopoverController
   ) {}
 
   async ngOnInit() {
@@ -57,13 +63,22 @@ export class ClientsPage implements OnInit {
       );
     }
 
-    if (role === 'delete'){
+    if (role === 'delete') {
       this.clients$ = this.clients$.pipe(
         map((client) => {
-          client.filter(clie => clie.id !== updatedClient.id);
+          client.filter((clie) => clie.id !== updatedClient.id);
           return client;
         })
       );
     }
+  }
+
+  async _openPopover(ev: any) {
+    const popover = await this.popCtrl.create({
+      component: PopoverComponent,
+      event: ev
+    });
+
+    return await popover.present();
   }
 }
