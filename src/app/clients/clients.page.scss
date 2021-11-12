@@ -1,4 +1,4 @@
-ion-button {
+.orange {
     --background: #FB6100;
     --background-activated: #FB6100;
     --background-activated-opacity: 1;
@@ -22,4 +22,10 @@ ion-button {
     --padding-top: 6px;
     --ripple-color: #1e1e1e;
     --transition: background-color 15ms linear;
+}
+
+.popover {
+    position: absolute;
+    top: 45%;
+    right: 5%;
 }

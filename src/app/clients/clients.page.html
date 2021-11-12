@@ -1,24 +1,25 @@
 <ion-header>
   <ion-toolbar class="ion-padding">
-    <ion-button expand="block" routerLink="/add-client">Novo Cliente</ion-button>
-      <ion-button slot="end" (click)="_openPopover($event)">
-        <ion-icon name="ellipsis-vertical-outline"></ion-icon>
-      </ion-button>
+    <ion-button class="orange" expand="block" routerLink="/add-client">Novo Cliente</ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-list>
-    <ion-card *ngFor="let clients of clients$|async" (click)="openClientDetailModal(clients)">
+    <ion-card *ngFor="let clients of clients$|async">
       <ion-grid fixed>
         <ion-row>
+          <ion-label>
           <ion-col size="9">
-            <ion-card-content>
+            <ion-card-content (click)="openClientDetailModal(clients)">
               <ion-card-title><b>Nome: </b>{{ clients.name }}</ion-card-title>
               <ion-card-title><b>CNPJ: </b>{{ clients.cnpj }}</ion-card-title>
               <ion-card-title><b>Total Faturado:</b> R$ {{ clients.total_expense }}</ion-card-title>
             </ion-card-content>
-          </ion-col>
+          </ion-col>          
+        </ion-label>
+        <ion-buttons class="popover" (click)="_openPopover($event)" ion-button><ion-icon name="ellipsis-vertical-outline"></ion-icon></ion-buttons>
+
         </ion-row>
       </ion-grid>
     </ion-card>

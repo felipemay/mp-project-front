@@ -79,6 +79,8 @@ export class ClientsPage implements OnInit {
       event: ev
     });
 
+    popover.onDidDismiss();
+
     return await popover.present();
   }
 }
